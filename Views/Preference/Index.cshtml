@@ -1,0 +1,38 @@
+﻿@model IEnumerable<ConvicartAdminApp.Models.Preference>
+
+@{
+    ViewData["Title"] = "Preferences";
+}
+
+<h2>Preferences</h2>
+
+<h5>
+    <a asp-action="CreatePreference" class="btn btn-primary">Create New Preference</a>
+</h5>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PreferenceName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PreferenceDescription)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.PreferenceName)</td>
+                <td>@Html.DisplayFor(modelItem => item.PreferenceDescription)</td>
+                <td>
+                    <a asp-action="EditPreference" asp-route-id="@item.PreferenceId" class="btn btn-warning">Edit</a> |
+                    <a asp-action="DeletePreference" asp-route-id="@item.PreferenceId" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

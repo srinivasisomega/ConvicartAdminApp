@@ -1,0 +1,114 @@
+﻿@model ConvicartAdminApp.ViewModels.StoreViewModel
+
+@{
+    ViewBag.Title = "Edit Store";
+}
+
+<h2>Edit Store</h2>
+
+<form asp-action="Edit" enctype="multipart/form-data" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="ProductName"></label>
+        <input asp-for="ProductName" class="form-control" />
+        <span asp-validation-for="ProductName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ProductDescription"></label>
+        <textarea asp-for="ProductDescription" class="form-control"></textarea>
+        <span asp-validation-for="ProductDescription" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Price"></label>
+        <input asp-for="Price" class="form-control" />
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Quantity"></label>
+        <input asp-for="Quantity" class="form-control" />
+        <span asp-validation-for="Quantity" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Carbs"></label>
+        <input asp-for="Carbs" class="form-control" />
+        <span asp-validation-for="Carbs" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Proteins"></label>
+        <input asp-for="Proteins" class="form-control" />
+        <span asp-validation-for="Proteins" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Vitamins"></label>
+        <input asp-for="Vitamins" class="form-control" />
+        <span asp-validation-for="Vitamins" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Minerals"></label>
+        <input asp-for="Minerals" class="form-control" />
+        <span asp-validation-for="Minerals" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CookTime"></label>
+        <input asp-for="CookTime" class="form-control" />
+        <span asp-validation-for="CookTime" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PrepTime"></label>
+        <input asp-for="PrepTime" class="form-control" />
+        <span asp-validation-for="PrepTime" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Difficulty"></label>
+        <select asp-for="Difficulty" class="form-control">
+            <option value="Easy">Easy</option>
+            <option value="Medium">Medium</option>
+            <option value="Hard">Hard</option>
+        </select>
+        <span asp-validation-for="Difficulty" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PreferenceId"></label>
+        <select asp-for="PreferenceId" class="form-control">
+            <option value="">-- Select Preference --</option>
+            @foreach (var preference in ViewBag.Preferences)
+            {
+                <option value="@preference.Value">@preference.Text</option>
+            }
+        </select>
+        <span asp-validation-for="PreferenceId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="imgUrl"></label>
+        <input asp-for="imgUrl" class="form-control" />
+        <span asp-validation-for="imgUrl" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ProductImage">Upload Product Image</label>
+        <input asp-for="ProductImage" class="form-control" type="file" />
+        <span asp-validation-for="ProductImage" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Rating"></label>
+        <input asp-for="Rating" class="form-control" />
+        <span asp-validation-for="Rating" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

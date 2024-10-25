@@ -1,0 +1,17 @@
+﻿@model ConvicartAdminApp.ViewModels.LoginViewModel
+
+<form asp-action="Login" method="post">
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Password"></label>
+        <input asp-for="Password" class="form-control" type="password" />
+    </div>
+    <div class="form-group">
+        <label asp-for="RememberMe"></label>
+        <input asp-for="RememberMe" type="checkbox" />
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+</form>

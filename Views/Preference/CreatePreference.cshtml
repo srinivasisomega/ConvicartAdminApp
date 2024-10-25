@@ -1,0 +1,31 @@
+﻿@model ConvicartAdminApp.Models.Preference
+
+@{
+    ViewData["Title"] = "Create Preference";
+}
+
+<h2>Create Preference</h2>
+
+<form asp-action="CreatePreference" enctype="multipart/form-data" method="post">
+    <div class="form-group">
+        <label asp-for="PreferenceName"></label>
+        <input asp-for="PreferenceName" class="form-control" />
+        <span asp-validation-for="PreferenceName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="PreferenceDescription"></label>
+        <input asp-for="PreferenceDescription" class="form-control" />
+        <span asp-validation-for="PreferenceDescription" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ImageURLCusine"></label>
+        <input asp-for="ImageURLCusine" class="form-control" />
+        <span asp-validation-for="ImageURLCusine" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Upload Product Image</label>
+        <input type="file" name="imageFile" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
+

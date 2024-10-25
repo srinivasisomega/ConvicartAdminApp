@@ -1,0 +1,30 @@
+﻿@model ConvicartAdminApp.Models.RecipeSteps
+
+@{
+    ViewData["Title"] = "Edit Recipe Step";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Edit" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="StepNumber"></label>
+        <input asp-for="StepNumber" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="StepDescription"></label>
+        <textarea asp-for="StepDescription" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label>Upload New Image (optional)</label>
+        <input type="file" name="StepImageFile" class="form-control" />
+    </div>
+
+    <!-- Hidden field to capture the ProductId -->
+    <input type="hidden" asp-for="ProductId" />
+    <input type="hidden" asp-for="Id" />
+
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>

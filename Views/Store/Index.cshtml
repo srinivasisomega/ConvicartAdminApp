@@ -1,0 +1,27 @@
+﻿@model IEnumerable<ConvicartAdminApp.Models.Store>
+<h5><a asp-controller="Store" asp-action="CreateStore" class="btn btn-primary">Create</a></h5>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var store in Model)
+        {
+            <tr>
+                <td>@store.ProductName</td>
+                <td>@store.Price</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@store.ProductId" class="btn btn-primary">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@store.ProductId" class="btn btn-danger">Delete</a>
+                    <a asp-controller="RecipeSteps" asp-action="Index" asp-route-productId="@store.ProductId" class="btn btn-danger">RecipeStepIndex</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

@@ -1,0 +1,43 @@
+﻿@model IEnumerable<ConvicartAdminApp.Models.RecipeSteps>
+
+@{
+    ViewData["Title"] = "Recipe Steps";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Step ID</th>
+            <th>Description</th>
+            <th>Image</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var step in Model)
+        {
+            <tr>
+                <td>@step.StepNumber</td>
+                <td>@step.StepDescription</td>
+                <td>
+                    @if (step.Stepimage != null)
+                    {
+                        <img src="data:image;base64,@Convert.ToBase64String(step.Stepimage)" alt="Recipe Step Image" style="max-width: 100px;" />
+                    }
+                    else
+                    {
+                        <p>No Image</p>
+                    }
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@step.Id" class="btn btn-primary">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@step.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Create" class="btn btn-primary">Add New Step</a>
