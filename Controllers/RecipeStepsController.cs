@@ -33,11 +33,19 @@ namespace ConvicartAdminApp.Controllers
         }
 
 
-        public IActionResult Create(int productId)
+        public async Task<IActionResult> Create(int productId)
         {
-            var model = new RecipeSteps { ProductId = productId }; // Assign ProductId from index
+            var productExists = await _context.Stores.AnyAsync(s => s.ProductId == productId);
+            if (!productExists)
+            {
+                // Handle case where ProductId does not exist, e.g., redirect or show an error
+                return RedirectToAction("Index", "Store"); // or another appropriate action
+            }
+
+            var model = new RecipeSteps { ProductId = productId };
             return View(model);
         }
+
 
         // POST: RecipeSteps/Create
         [HttpPost]
